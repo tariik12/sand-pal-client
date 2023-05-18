@@ -1,70 +1,137 @@
 import login from '../../public/login.json'
 import Lottie from "lottie-react";
-import { FaGoogle } from "react-icons/fa";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { AuthContext } from '../provider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Register = () => {
+  const { createUser, updateProfileUser } = useContext(AuthContext);
+  const [accept, setAccept] = useState(false);
 
-    const { register, handleSubmit } = useForm();
-    const [data, setData] = useState("");
+  const handleAccept = event => {
+    setAccept(event.target.checked);
+  };
 
-    console.log(data)
+  
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/';
+
+  const handleRegister = event => {
+    event.preventDefault();
+    const { name, photo, email, password } = event.target.elements;
+    console.log( name, photo, email, password )
+    const passwordRequirements = [
+      { pattern: /(?=.*?[A-Z])/, message: 'At least one upper case English letter!' },
+      { pattern: /(?=.*?[a-z])/, message: 'At least one lower case English letter!' },
+      { pattern: /(?=.*?[0-9])/, message: 'At least one digit!' },
+      { pattern: /(?=.*?[#?!@$%^&*-])/, message: 'At least one special character!' },
+      { pattern: /.{8,}/, message: 'Minimum eight in length!' },
+    ];
+
+    const isPasswordValid = passwordRequirements.every(({ pattern, message }) => {
+      const isValid = pattern.test(password.value);
+      if (!isValid) {
+        toast.error(message, {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      }
+      return isValid;
+    });
+
+    if (!isPasswordValid) {
+      return;
+    }
+
+    createUser(email.value, password.value)
+      .then(userCredential => {
+        const user = userCredential.user;
+        console.log(user)
+        updateProfileUser(name.value, photo.value);
+        toast('Register Success!', {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+        navigate(from, { replace: true });
+        event.target.reset();
+      })
+      .catch(error => {
+        const errorMessage = error.message;
+        toast.error(`${errorMessage}`, {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      });
+  };
+
     return (
-        <div className="hero min-h-screen md:h-96 bg-base-200">
+        <div className="hero min-h-screen md:h-full bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left w-1/2">
           <Lottie animationData={login} loop={true} />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl md:h-[650px]  bg-base-100">
-            <div className="card-body">
-                <h1 className='text-center text-4xl font-bold'>Register Here !!</h1>
-                <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-bold">Name</span>
-                </label>
-               
-                <input {...register("name")} type="text" placeholder="Enter Your Email" className="input input-bordered" />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-bold">Email</span>
-                </label>
-               
-                <input {...register("email")} type="email" placeholder="Enter Your Email" className="input input-bordered" />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-bold">Photo Url</span>
-                </label>
-               
-                <input {...register("Photo")} type="text" placeholder="Enter Your Photo url" className="input input-bordered" />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-bold">Password</span>
-                </label>
-                <input {...register("password")} type="password" placeholder="Enter Your Password" className="input input-bordered" />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                  <span> Already have an account ? <Link to='/login' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Login</Link></span>
-                </label>
-                <label className="label">
-                
-                </label>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl md:h-[650px]   p-5 bg-base-100">
+          <h1 className="text-center text-2xl font-bold p-5">Welcome! Please Register to continue.</h1>
+          <form onSubmit={handleRegister}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name='name' placeholder="Please enter your name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo Url</span>
+                                </label>
+                                <input type="text" name='photo' placeholder="Please enter your email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="text" name='email' placeholder="Please enter your email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-bold">Password</span>
+                                </label>
 
-              </div>
-              <div className="form-control ">
-                <button className="btn   bg-cyan-700 hover:bg-cyan-400 text-white font-bold">Login</button>
-              </div>
-              </form>
-              <div className="divider">OR</div>
-              <div>
-                <FaGoogle className='ms-32  h-10 w-10 text-cyan-700 hover:text-cyan-400 ' />
-              </div>
-            </div>
+                                <input type="password" name="password" placeholder="Please enter your password" className="input input-bordered" />
+                                <label className="label">
+                                    <span> Already have an account ? <Link to='/login' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Login</Link></span>
+                                <input
+                                    type="checkbox"
+                                    onClick={handleAccept}
+                                    label={<>Accept <Link to="/terms">terms and conditions</Link></>}
+                                />
+                                </label>
+                               
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="w-100 btn " type="submit" disabled={!accept} >Login</button>
+                            </div>
+                        </form>
           </div>
         </div>
       </div>
