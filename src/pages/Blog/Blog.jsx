@@ -2,8 +2,8 @@
 
 const Blog = () => {
     return (
-        <div className="card  px-20 py-10">
-            <div className="collapse">
+        <div className="card  bg-cyan-400 py-20 px-20">
+            <div className="collapse  ">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title bg-cyan-400 text-cyan-content peer-checked:bg-white peer-checked:text-white-content">
                     <div className="card-title text-2xl">

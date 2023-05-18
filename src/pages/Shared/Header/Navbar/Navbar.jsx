@@ -41,11 +41,11 @@ const Navbar = () => {
           <li className="font-bold text-xl"><Link>Add Toy</Link></li>
           
           <div className="avatar">
-            <div className="w-24 rounded-full">
+            <div className="w-16 rounded-full">
               <img src={user?.photoURL} />
             </div>
             </div>
-            <li className="font-bold text-xl"><button onClick={handleLogout} className="bg-cyan-700 hover:bg-cyan-400 text-white w-full  md:ms-5 ">log out</button></li>
+            <li className="font-bold text-xl"><button onClick={handleLogout} className="btn btn-primary btn-outline md:mt-2  md:ms-5 ">Logout</button></li>
        
           </>
           :

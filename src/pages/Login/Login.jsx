@@ -68,9 +68,9 @@ const Login = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                <div className="text-center lg:text-left ">
-          <Lottie animationData={login} loop={true} />
-          </div>
+                    <div className="text-center lg:text-left ">
+                        <Lottie animationData={login} loop={true} />
+                    </div>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <h1 className="text-center text-2xl font-bold p-5">Welcome! Please Login to continue.</h1>
@@ -80,7 +80,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-bold">Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="Please enter your email" className="input input-bordered"  required/>
+                                <input type="text" name='email' placeholder="Please enter your email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -89,24 +89,31 @@ const Login = () => {
 
                                 <input type="password" name="password" placeholder="Please enter your password" className="input input-bordered" required />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover font-bold">Forgot password?</a>
-                                <input
-                                    type="checkbox"
-                                    onClick={handleAccept}
-                                    label={<>Accept <Link to="/terms">terms and conditions</Link></>}
-                                />
+                                    
+                                {<span className='font-bold '>Accept <Link to="/terms" className=' text-cyan-700 hover:text-cyan-400 font-bold'>terms and conditions</Link></span>}
+                                    <div className="form-control">
+                                        <label className="cursor-pointer label">
+                                        
+                                            <input
+                                            className="checkbox checkbox-primary"
+                                        type="checkbox"
+                                        onClick={handleAccept}
+                                    />
+                                        </label>
+                                    </div>
+                                    
                                 </label>
-                                    <span className='font-bold mt-5 '>  Create account ? <Link to='/register' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Register</Link></span>
+                                <span className='font-bold mt-5 '>  Create account ? <Link to='/register' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Register</Link></span>
                             </div>
                             <div className="form-control ">
-                                <button className="btn w-100 mt-3" type="submit" disabled={!accept} >Login</button>
+                                <button className="btn btn-outline btn-primary w-100 mt-3" type="submit" disabled={!accept} >Login</button>
                             </div>
                         </form>
                     </div>
 
-                  <div className=''>
-                  <G_Login></G_Login>
-                  </div>
+                    <div className=''>
+                        <G_Login></G_Login>
+                    </div>
                 </div>
             </div>
         </div>

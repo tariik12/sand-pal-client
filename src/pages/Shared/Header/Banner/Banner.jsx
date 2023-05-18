@@ -39,7 +39,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn  bg-cyan-700 hover:bg-cyan-400 text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
 
                 </SwiperSlide>
@@ -48,7 +48,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
                     </SwiperSlide>
                 <SwiperSlide>
@@ -56,7 +56,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -64,7 +64,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -72,7 +72,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -80,7 +80,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -88,7 +88,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -96,7 +96,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-secondary btn-outline flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -104,7 +104,7 @@ export default function Banner() {
                         <h4 className="text-2xl mb-3 font-bold">Discover endless creativity</h4>
                         <h1 className="text-4xl font-bold text-cyan-200">Remodel the way they build castles</h1>
                         <p className="font-bold my-3">Innovative eco-friendly builders kit</p>
-                        <button className="btn btn-accent text-white flex justify-center">Shop Now</button>
+                        <button className="btn btn-primary btn-outline  flex justify-center">Shop Now</button>
                     </div>
                 </SwiperSlide>
             </Swiper>

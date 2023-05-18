@@ -8,7 +8,7 @@ const HowToSand = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-4xl font-bold">How to use Sand Pal</h1>
       <p className="mb-5 text-xl">Choose a flat surface to work on. Use sand clean of seashells and stones. Fill mold with damp sand and pack tightly. Situate and eject shape with both thumbs pushing down.</p>
-      <button className="btn btn-primary">Learn More</button>
+      <button className="btn btn-primary btn-outline">Learn More</button>
     </div>
   </div>
 </div>

@@ -88,7 +88,7 @@ const Register = () => {
     return (
         <div className="hero min-h-screen md:h-full bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left w-1/2">
+          <div className="text-center lg:text-left">
           <Lottie animationData={login} loop={true} />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl md:h-[650px]   p-5 bg-base-100">
@@ -119,17 +119,26 @@ const Register = () => {
 
                                 <input type="password" name="password" placeholder="Please enter your password" className="input input-bordered" />
                                 <label className="label">
-                                    <span> Already have an account ? <Link to='/login' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Login</Link></span>
-                                <input
-                                    type="checkbox"
-                                    onClick={handleAccept}
-                                    label={<>Accept <Link to="/terms">terms and conditions</Link></>}
-                                />
+                                    
+                                {<span className='font-bold '>Accept <Link to="/terms" className=' text-cyan-700 hover:text-cyan-400 font-bold'>terms and conditions</Link></span>}
+                                    <div className="form-control">
+                                        <label className="cursor-pointer label">
+                                        
+                                            <input
+                                            className="checkbox checkbox-primary"
+                                        type="checkbox"
+                                        onClick={handleAccept}
+                                    />
+                                        </label>
+                                    </div>
+                                    
                                 </label>
+                                <span className='font-bold mt-5'> Already have an account ? <Link to='/login' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Login</Link></span>
+                                
                                
                             </div>
                             <div className="form-control mt-6">
-                                <button className="w-100 btn " type="submit" disabled={!accept} >Login</button>
+                                <button className="w-100 btn btn-outline btn-primary " type="submit" disabled={!accept} >Login</button>
                             </div>
                         </form>
           </div>

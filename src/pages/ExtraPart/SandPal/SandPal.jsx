@@ -20,7 +20,7 @@ const SandPal = () => {
                     <p className="py-6  text-xl">
                         Sand Pal is a beautiful ergonomic set of tools, designed to expand creativity to its fullest. Building with Sand Pal is about team work, engaging in natures materials and developing the meaning of fun.
                     </p>
-                    <button className="btn btn-primary">Get Your kit now</button>
+                    <button className="btn btn-primary btn-outline">Get Your kit now</button>
                 </div>
             </div>
         </div>

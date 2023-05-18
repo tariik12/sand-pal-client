@@ -1,37 +1,63 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png"
 import { FaBahai,FaFacebookSquare,FaInstagramSquare,FaTelegram} from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Footer = () => {
+
+  const handleSubscribe =(event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    if(email){
+      toast.success('Thanks for subscribe!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+    });
+    }
+
+    event.target.reset();
+
+       
+  }
+  
     return (
         <div className="">
             <footer className="footer p-10  text-base-content bg-cyan-300">
   <div>
-   <Link className=" text-6xl md:text-4xl font-bold text-white ms-28 md:ms-5 mt-10" to='/'>Sand Pal</Link> 
+   <Link className=" text-6xl md:text-4xl font-bold text-white ms-28 md:ms-5 mt-20" to='/'>Sand Pal</Link> 
     
   </div> 
   <div>
-    <span className="footer-title">Company</span> 
-    <a className="link link-hover">About us</a> 
-    <a className="link link-hover">Contact</a> 
-    <a className="link link-hover">Jobs</a> 
-    <a className="link link-hover">Press kit</a>
+    <span className="text-white font-bold text-2xl">Company Details</span> 
+    <Link className="link link-hover font-bold text-xl">About us</Link> 
+    <Link className="link link-hover font-bold text-xl">Contact</Link> 
+    <Link className="link link-hover font-bold text-xl">Jobs</Link> 
+    <Link to='/blog' className="link link-hover font-bold text-xl">Blog</Link>
   </div> 
   <div>
-    <span className="footer-title">Legal</span> 
-    <a className="link link-hover">Terms of use</a> 
-    <a className="link link-hover">Privacy policy</a> 
-    <a className="link link-hover">Cookie policy</a>
+    <span className="text-white font-bold text-2xl">Legal</span> 
+    <Link className="link link-hover font-bold text-xl">Terms of use</Link> 
+    <Link className="link link-hover font-bold text-xl">Privacy policy</Link> 
+    <Link className="link link-hover font-bold text-xl">Cookie policy</Link>
   </div>
   <div>
-    <span className="footer-title">Newsletter</span> 
+    <span className="text-white font-bold text-2xl">Newsletter</span> 
     <div className="form-control w-80">
       <label className="label">
-        <span className="label-text">Enter your email address</span>
+        <span className="label-text font-bold font-2xl">Enter your email address</span>
       </label> 
       <div className="relative">
-        <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" /> 
-        <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+      <form onSubmit={handleSubscribe}>
+      <input type="email" name="email"  placeholder="username@site.com" className="input input-bordered w-full pr-16" required /> 
+        <button className="btn btn-primary btn-outline absolute top-0 right-0 rounded-l-none" type="submit">Subscribe</button>
+      </form>
       </div>
     </div>
   </div>
@@ -46,9 +72,9 @@ const Footer = () => {
   </div>
 </div>
   </div> 
-    <p className="text-center mt-12">ACME Industries Ltd.Providing reliable tech since 1992</p>
-  <div className="md:place-self-center md:justify-self-end ms-28 md:ms-0">
-    <div className="grid grid-flow-col gap-4">
+    <p className="text-center mt-12 font-bold text-xl">&copy; 2023 Your Company. All rights reserved.</p>
+  <div className="md:place-self-center md:justify-self-end md:me-28 ms-28 md:ms-0">
+    <div className="grid grid-flow-col gap-4 ">
       <FaTelegram className="w-7 h-7"/>
       <FaInstagramSquare className="w-7 h-7"/>
       <FaFacebookSquare className="w-7 h-7"/>
