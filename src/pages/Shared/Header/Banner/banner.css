@@ -1,3 +1,4 @@
+
 #app { height: 100% }
 html,
 body {
@@ -23,9 +24,10 @@ body {
 }
 
 .swiper {
-  margin: 100px auto;
-  width: 320px;
-  height: 240px;
+ 
+  width: 100%;
+  height: 700px;
+
 }
 
 .swiper-slide {
@@ -39,40 +41,73 @@ body {
 
 .swiper-slide:nth-child(1n) {
   background-color: rgb(206, 17, 17);
+  background-image: url('/src/assets/banner/banner_2.jpg') ;
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(2n) {
-  background-color: rgb(0, 140, 255);
+    background-color: rgb(206, 77, 17);
+  background-image: url('../../../../assets/banner/banner_1.avif');
+  background-repeat: no-repeat;
+  background-size:contain;
+  
+  
 }
 
 .swiper-slide:nth-child(3n) {
-  background-color: rgb(10, 184, 111);
+    background-color: rgb(10, 184, 111);
+    background-image:url('/src/assets/banner/banner_3.jpg');
+    background-repeat: no-repeat;
+    background-size:contain;
+  
 }
 
 .swiper-slide:nth-child(4n) {
   background-color: rgb(211, 122, 7);
+  background-image: url('/src/assets/banner/banner_6.jpg');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(5n) {
   background-color: rgb(118, 163, 12);
+  background-image: url('/src/assets/banner/banner_7.jpg');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(6n) {
   background-color: rgb(180, 10, 47);
+  background-image: url('/src/assets/banner/banner_4.avif');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(7n) {
   background-color: rgb(35, 99, 19);
+  background-image: url('/src/assets/banner/banner_9.jpg');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(8n) {
   background-color: rgb(0, 68, 255);
+  background-image: url('/src/assets/banner/banner_5.jpg');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(9n) {
   background-color: rgb(218, 12, 218);
+  background-image: url('/src/assets/banner/banner_11.png');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
 
 .swiper-slide:nth-child(10n) {
   background-color: rgb(54, 94, 77);
+  background-image: url('/src/assets/banner/banner_12.jpg');
+  background-repeat: no-repeat;
+  background-size:contain;
 }
