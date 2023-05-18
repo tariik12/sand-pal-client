@@ -96,7 +96,7 @@ const Login = () => {
                                     label={<>Accept <Link to="/terms">terms and conditions</Link></>}
                                 />
                                 </label>
-                                    <span className='font-bold mt-5 '> Already have an account ? <Link to='/login' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Login</Link></span>
+                                    <span className='font-bold mt-5 '>  Create account ? <Link to='/register' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Register</Link></span>
                             </div>
                             <div className="form-control ">
                                 <button className="btn w-100 mt-3" type="submit" disabled={!accept} >Login</button>
