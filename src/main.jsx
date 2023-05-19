@@ -10,10 +10,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <AuthProvider>
+ 
+   <AuthProvider>
     <RouterProvider router={router} />
     <ToastContainer/>
   </AuthProvider>
+
 
 
 )
