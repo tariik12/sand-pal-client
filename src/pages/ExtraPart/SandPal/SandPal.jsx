@@ -1,13 +1,19 @@
 import sand from '../../../assets/sand.webp'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react';
 
 const SandPal = () => {
+    useEffect(()=>{
+        Aos.init({duration:1000})
+    },[])
     return (
         <div className="hero min-h-screen mt-10">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className=''>
+                <div className='' data-aos="fade-left">
                     <img src={sand} className="max-w-2xl md:me-end rounded-lg  " />
                 </div>
-                <div className=' max-w-2xl'>
+                <div className=' max-w-2xl' data-aos="fade-right">
                     <h1 className="text-5xl font-bold text-cyan-400">Hey! We are Sand Pal!</h1>
                     <p className="py-6  text-xl">
                         We are not fortune tellers, yet, but we can guess you want your child to be the best. In like, everything.
