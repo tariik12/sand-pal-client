@@ -24,7 +24,7 @@ const ReactTabs = () => {
   console.log(SandSculptingKits)
 
   useEffect(() => {
-    fetch('Sand_pal.json')
+    fetch('http://localhost:5000/sandPalToy')
       .then(res => res.json())
       .then(data => setAllData(data))
   }, [])
