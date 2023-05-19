@@ -37,8 +37,8 @@ const Navbar = () => {
 
       {
         user ? <>
-          <li className="font-bold text-xl"><Link>My Toys</Link></li>
-          <li className="font-bold text-xl"><Link>Add Toy</Link></li>
+          <li className="font-bold text-xl"><Link >My Toys</Link></li>
+          <li className="font-bold text-xl"><Link to='/addToy'>Add Toy</Link></li>
           
           <div className="avatar">
             <div className="w-16 rounded-full">
