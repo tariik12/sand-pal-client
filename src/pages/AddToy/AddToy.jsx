@@ -34,7 +34,7 @@ console.log(watch('price'))
         data.price = parseInt(watch('price'))
 
 
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://spk-server-side.vercel.app/addToy', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

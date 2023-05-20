@@ -20,7 +20,7 @@ const ReactTabs = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/sandPalToy')
+    fetch('https://spk-server-side.vercel.app/sandPalToy')
       .then(res => res.json())
       .then(data => setAllData(data))
   }, [])
@@ -38,7 +38,7 @@ const ReactTabs = () => {
 
       <TabPanel >
 
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
           {
             sandMolds.map((sandMold, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">
@@ -62,7 +62,7 @@ const ReactTabs = () => {
         </div>
       </TabPanel>
       <TabPanel>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
           {
             SandShapers.map((sandShaper, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">
@@ -157,12 +157,12 @@ const ReactTabs = () => {
           }
         </div>
       </TabPanel>
-     
-    
-      
-      
-      
-      
+
+
+
+
+
+
     </Tabs>
   );
 };

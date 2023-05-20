@@ -14,7 +14,7 @@ const MyToys = () => {
     console.log(myToys)
     useEffect(() => {
 
-        fetch(`http://localhost:5000/myToy/${user?.email}`)
+        fetch(`https://spk-server-side.vercel.app/myToy/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user])
@@ -32,7 +32,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myToy/${_id}`,{
+                fetch(`https://spk-server-side.vercel.app/myToy/${_id}`,{
                     method:'DELETE'
                 })
                     .then(res => res.json())
@@ -56,7 +56,7 @@ const MyToys = () => {
 
         
 
-            fetch(`http://localhost:5000/ass/${user?.email}`)
+            fetch(`https://spk-server-side.vercel.app/ass/${user?.email}`)
                 .then(res => res.json())
                 .then(data => setMyToys(data))
         
@@ -65,7 +65,7 @@ const MyToys = () => {
 
         
 
-            fetch(`http://localhost:5000/des/${user?.email}`)
+            fetch(`https://spk-server-side.vercel.app/des/${user?.email}`)
                 .then(res => res.json())
                 .then(data => setMyToys(data))
         

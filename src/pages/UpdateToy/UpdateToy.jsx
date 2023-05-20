@@ -32,7 +32,7 @@ const UpdateToy = () => {
   
    
       data.subToy = selectedSub_Category
-      fetch(`http://localhost:5000/allToys/${_id}`, {
+      fetch(`https://spk-server-side.vercel.app/allToys/${_id}`, {
           method: "PATCH",
           headers: {
               'content-type': 'application/json'

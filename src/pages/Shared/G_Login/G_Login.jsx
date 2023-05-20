@@ -12,38 +12,6 @@ const G_Login = () => {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
-    // const handleGithubLocation = () =>{
-    //     handleGithubProvider()
-    //     .then((result) => {
-    //       const user = result.user;
-    //       console.log(user)
-    //       toast.success('Login Success!', {
-    //         position: 'top-center',
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //         theme: 'light',
-    //       });
-    //       navigate(from, { replace: true });
-    //     })
-    //     .catch((error) => {
-    //       const errorMessage = error.message;
-    //       toast.error(errorMessage, {
-    //         position: 'top-center',
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //         theme: 'light',
-    //       });
-    //     });
-      
-    //   }
       const handleGoogleLocation = () =>{
       
         handleGoogleProvider()

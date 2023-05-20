@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         {
           path:'viewDetails/:id',
           element:<Sub_CategoryDetails></Sub_CategoryDetails>,
-          loader:({params}) => fetch(`http://localhost:5000/sandPalToy/${params.id}`)
+          loader:({params}) => fetch(`https://spk-server-side.vercel.app/${params.id}`)
         }
         ,
         {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         {
           path:'updateToy/:id',
           element:<UpdateToy></UpdateToy>,
-          loader:({params}) => fetch(`http://localhost:5000/allToys/${params.id}`)
+          loader:({params}) => fetch(`https://spk-server-side.vercel.app/allToys/${params.id}`)
         }
 
 
