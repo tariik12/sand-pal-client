@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         {
           path:'viewDetails/:id',
           element:<Sub_CategoryDetails></Sub_CategoryDetails>,
-          loader:({params}) => fetch(`https://spk-server-side.vercel.app/${params.id}`)
+          loader:({params}) => fetch(`https://spk-server-side.vercel.app/sandPalToy/${params.id}`)
         }
         ,
         {
