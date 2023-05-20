@@ -4,24 +4,20 @@ import 'react-tabs/style/react-tabs.css';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
+import { FaSignInAlt } from 'react-icons/fa';
 
 
 const ReactTabs = () => {
 
   const [allData, setAllData] = useState([])
 
-  console.log(allData)
-
   const sandMolds = allData.filter(data => data.sand === 'Sand Molds')
-  console.log(sandMolds)
   const SandShapers = allData.filter(data => data.sand === 'Sand Shaper')
-  console.log(SandShapers)
   const SandTools = allData.filter(data => data.sand === 'Sand Tool')
-  console.log(SandTools)
   const SandBuckets = allData.filter(data => data.sand === 'Sand Bucket')
-  console.log(SandBuckets)
   const SandSculptingKits = allData.filter(data => data.sand === 'Sand Sculpting Kit')
-  console.log(SandSculptingKits)
+
 
   useEffect(() => {
     fetch('http://localhost:5000/sandPalToy')
@@ -57,7 +53,7 @@ const ReactTabs = () => {
                   <p><strong>Price:</strong> {sandMold.price}</p>
                   <div className=" justify-between  flex">
                     <Rating style={{ maxWidth: 250 }} value={sandMold.rating} readOnly />
-                    <button className="btn btn-primary btn-outline">View Details</button>
+                    <Link to={`/viewDetails/${sandMold._id}`} className="btn btn-primary btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
                   </div>
                 </div>
               </div>
@@ -81,7 +77,7 @@ const ReactTabs = () => {
                   <p><strong>Price:</strong> {sandShaper.price}</p>
                   <div className=" justify-between  flex">
                     <Rating style={{ maxWidth: 250 }} value={sandShaper.rating} readOnly />
-                    <button className="btn btn-primary btn-outline">View Details</button>
+                    <Link to={`/viewDetails/${sandShaper._id}`} className="btn btn-primary btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
                   </div>
                 </div>
               </div>
@@ -105,7 +101,7 @@ const ReactTabs = () => {
                   <p><strong>Price:</strong> {SandBucket.price}</p>
                   <div className=" justify-between  flex">
                     <Rating style={{ maxWidth: 250 }} value={SandBucket.rating} readOnly />
-                    <button className="btn btn-primary btn-outline">View Details</button>
+                    <Link to={`/viewDetails/${SandBucket._id}`} className="btn btn-primary btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
                   </div>
                 </div>
               </div>
@@ -129,7 +125,7 @@ const ReactTabs = () => {
                   <p><strong>Price:</strong> {SandTool.price}</p>
                   <div className=" justify-between  flex">
                     <Rating style={{ maxWidth: 250 }} value={SandTool.rating} readOnly />
-                    <button className="btn btn-primary btn-outline">View Details</button>
+                    <Link to={`/viewDetails/${SandTool._id}`} className="btn btn-primary btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
                   </div>
                 </div>
               </div>
@@ -153,7 +149,7 @@ const ReactTabs = () => {
                   <p><strong>Price:</strong> {SandSculptingKit.price}</p>
                   <div className=" justify-between  flex">
                     <Rating style={{ maxWidth: 250 }} value={SandSculptingKit.rating} readOnly />
-                    <button className="btn btn-primary btn-outline">View Details</button>
+                    <Link to={`/viewDetails/${SandSculptingKit._id}`} className="btn btn-primary btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
                   </div>
                 </div>
               </div>

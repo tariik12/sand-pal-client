@@ -37,7 +37,7 @@ const Navbar = () => {
 
       {
         user ? <>
-          <li className="font-bold text-xl"><Link >My Toys</Link></li>
+          <li className="font-bold text-xl"><Link to='/myToys' >My Toys</Link></li>
           <li className="font-bold text-xl"><Link to='/addToy'>Add Toy</Link></li>
           
           <div className="avatar">

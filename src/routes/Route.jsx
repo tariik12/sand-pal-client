@@ -7,6 +7,9 @@ import Blog from "../pages/Blog/Blog";
 import Error from "../pages/Error/Error";
 import AddToy from "../pages/AddToy/AddToy";
 import AllToys from "../pages/AllToys/AllToys";
+import MyToys from "../pages/MyToys/MyToys";
+import UpdateToy from "../pages/UpdateToy/UpdateToy";
+import Sub_CategoryDetails from "../pages/Home/ReactTabs/TabReact/Sub_CategoryDetails/Sub_CategoryDetails";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +21,12 @@ const router = createBrowserRouter([
             path:'/',
             element:<Home></Home>
         },
+        {
+          path:'viewDetails/:id',
+          element:<Sub_CategoryDetails></Sub_CategoryDetails>,
+          loader:({params}) => fetch(`http://localhost:5000/sandPalToy/${params.id}`)
+        }
+        ,
         {
           path:'/login',
           element:<Login></Login>
@@ -37,7 +46,17 @@ const router = createBrowserRouter([
         {
           path:'/allToys',
           element:<AllToys></AllToys>
+        },
+        {
+          path:'/myToys',
+          element:<MyToys></MyToys>
+        },
+        {
+          path:'updateToy/:id',
+          element:<UpdateToy></UpdateToy>,
+          loader:({params}) => fetch(`http://localhost:5000/allToys/${params.id}`)
         }
+
 
       ]
     },

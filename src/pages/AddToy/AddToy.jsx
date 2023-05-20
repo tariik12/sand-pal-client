@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider";
 import CreatableSelect from "react-select/creatable"
-import Select from 'react-select';
+// import Select from 'react-select';
 import { toast } from "react-toastify";
 // import Select from 'react-select';
 
@@ -17,26 +17,26 @@ const Sub_Category = [
     { value: "Hape Rain Shovel", label: "Great Castle Walls" },
     { value: "Toy Essential Set", label: "Toy Essential Set" },
 ];
-const Toy_Name = [
-    { value: "Sand Molds", label: "Sand Molds" },
-    { value: "Sand Shapers", label: "Sand Shapers" },
-    { value: "Sand Tools", label: "Sand Tools" },
-    { value: "Sand Buckets", label: "Sand Buckets" },
-    { value: "Sand Sculpting Kits", label: "Sand Sculpting Kits" },
-];
+// const Toy_Name = [
+//     { value: "Sand Molds", label: "Sand Molds" },
+//     { value: "Sand Shapers", label: "Sand Shapers" },
+//     { value: "Sand Tools", label: "Sand Tools" },
+//     { value: "Sand Buckets", label: "Sand Buckets" },
+//     { value: "Sand Sculpting Kits", label: "Sand Sculpting Kits" },
+// ];
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
     const [selectedSub_Category, setSelectedSub_Category] = useState(null);
-    const [selectedToyName, setSelectedToyName] = useState(null);
+    // const [selectedToyName, setSelectedToyName] = useState(null);
     const { register, handleSubmit } = useForm();
 
 
     const onSubmit = (data) => {
-        data.toy_name = selectedToyName
-        data.sub_toy = selectedSub_Category
-        data.seller_email = user.email
-        data.Seller_name = user.displayName
+        // data.toyName = selectedToyName
+        data.subToy = selectedSub_Category
+        data.sellerEmail = user.email
+        data.sellerName = user.displayName
 
 
         fetch('http://localhost:5000/addToy', {
@@ -97,13 +97,13 @@ const AddToy = () => {
                                 <label className="label">
                                     <span className="label-text font-extrabold text-lg">Toy Name</span>
                                 </label>
-                                <Select
-
-                                    defaultValue={selectedToyName}
-                                    onChange={setSelectedToyName}
-                                    options={Toy_Name}
-                                    required
-                                />
+                                <select {...register("toyName")} className="input input-bordered" >
+                                    <option value="Sand Molds">Sand Molds</option>
+                                    <option value="Sand Shapers">Sand Shapers</option>
+                                    <option value="Sand Tools">Sand Tools</option>
+                                    <option value="Sand Buckets">Sand Buckets</option>
+                                    <option value="Sand Sculpting Kits">Sand Sculpting Kits</option>
+                                </select>
                             </div>
                         </div>
                         <div className="md:flex gap-2">
