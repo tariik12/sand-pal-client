@@ -4,6 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import CreatableSelect from "react-select/creatable"
 // import Select from 'react-select';
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 // import Select from 'react-select';
 
 const Sub_Category = [
@@ -17,26 +18,20 @@ const Sub_Category = [
     { value: "Hape Rain Shovel", label: "Great Castle Walls" },
     { value: "Toy Essential Set", label: "Toy Essential Set" },
 ];
-// const Toy_Name = [
-//     { value: "Sand Molds", label: "Sand Molds" },
-//     { value: "Sand Shapers", label: "Sand Shapers" },
-//     { value: "Sand Tools", label: "Sand Tools" },
-//     { value: "Sand Buckets", label: "Sand Buckets" },
-//     { value: "Sand Sculpting Kits", label: "Sand Sculpting Kits" },
-// ];
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
     const [selectedSub_Category, setSelectedSub_Category] = useState(null);
     // const [selectedToyName, setSelectedToyName] = useState(null);
-    const { register, handleSubmit } = useForm();
+    const { register,watch, handleSubmit } = useForm();
 
-
+console.log(watch('price'))
     const onSubmit = (data) => {
         // data.toyName = selectedToyName
-        data.subToy = selectedSub_Category
+        data.subToy =selectedSub_Category
         data.sellerEmail = user.email
         data.sellerName = user.displayName
+        data.price = parseInt(watch('price'))
 
 
         fetch('http://localhost:5000/addToy', {
@@ -67,6 +62,9 @@ const AddToy = () => {
     return (
 
         <div className="py-10  mx-auto bg-base-200 ">
+            <Helmet>
+                <title>Sand Pal !!  AddToy</title>
+            </Helmet>
             <div className="card w-full max-w-7xl mx-auto shadow-2xl bg-base-100">
                 <h1 className="text-center text-4xl font-extrabold p-5 shadow-2xl bg-base-100 rounded-t-xl ">Add Your Toy</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

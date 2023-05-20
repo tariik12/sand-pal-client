@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaRegEdit, FaSignInAlt, FaTrashAlt } from "react-icons/fa";
 
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyToys = () => {
     const { user, } = useContext(AuthContext);
@@ -50,19 +51,34 @@ const MyToys = () => {
             }
         })
     }
+
+    const handleAss =() =>{
+
+        
+
+            fetch(`http://localhost:5000/ass/${user?.email}`)
+                .then(res => res.json())
+                .then(data => setMyToys(data))
+        
+    }
+    const handleDes =() =>{
+
+        
+
+            fetch(`http://localhost:5000/des/${user?.email}`)
+                .then(res => res.json())
+                .then(data => setMyToys(data))
+        
+    }
     return (
         <div className="p-10 overflow-x-auto w-full">
-            {/* <div className="card flex gap-4 bg-base-100 shadow-2xl">
+            <Helmet>
+                <title>Sand Pal !!  MyToy</title>
+            </Helmet>
             <div>
-                <h1 className="text-4xl font-extrabold mx-auto">All Toys </h1>
+                <button onClick={handleAss}  className="btn">acnding</button>
+                <button onClick={handleDes} className="btn">decnding</button>
             </div>
-            <div className="form-control w-80">
-                <div className="relative">
-                    <input onChange={(event)=>setSearchText(event.target.value)} type="text" placeholder="Search" className="input input-bordered w-full pr-16" />
-                    <button onClick={handleSearch} className="btn btn-primary absolute top-0 right-0 rounded-l-none">Click</button>
-                </div>
-            </div>
-        </div> */}
             <table className="table w-full">
                 {/* head */}
                 <thead>
@@ -101,9 +117,7 @@ const MyToys = () => {
                                 </td>
                                 <td>{toy.price}</td>
                                 <th>
-
-                                    
-                                    <label htmlFor="my-modal-5"><Link to={`/updateToy/${toy._id}`} className="btn  btn-info btn-md btn-outline"><FaRegEdit className="w-8 h-8" /></Link></label>
+                                   <Link to={`/updateToy/${toy._id}`} className="btn  btn-info btn-md btn-outline"><FaRegEdit className="w-8 h-8" /></Link>
                                     <button onClick={() => handleDelete(toy._id)} className="btn mx-4  btn-warning btn-md btn-outline"><FaTrashAlt className="w-8 h-8" /></button>
                                     <button className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8" /></button>
                                 </th>

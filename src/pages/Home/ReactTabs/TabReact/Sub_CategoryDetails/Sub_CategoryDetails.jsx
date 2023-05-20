@@ -5,6 +5,7 @@ import '@smastrom/react-rating/style.css'
 import { useContext } from "react";
 import { AuthContext } from "../../../../../provider/AuthProvider";
 import { FaGratipay, FaArrowLeft } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Sub_CategoryDetails = () => {
     const data = useLoaderData();
@@ -13,6 +14,9 @@ const Sub_CategoryDetails = () => {
     const {like,material,name,picture,price,rating,sand,details} = data
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl p-10 m-10 border">
+          <Helmet>
+          <title>Sand Pal !! SubToyDetails</title>
+          </Helmet>
   <img src={picture} className="w-[700px] h-[800px] border" alt="Album"/>
   <div className="card-body">
     <div className="flex ">

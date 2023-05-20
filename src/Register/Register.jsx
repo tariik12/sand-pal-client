@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
   const { createUser, updateProfileUser } = useContext(AuthContext);
@@ -87,6 +88,9 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen md:h-full bg-base-200">
+           <Helmet>
+                <title>Sand Pal !!  Register</title>
+            </Helmet>
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
           <Lottie animationData={login} loop={true} />

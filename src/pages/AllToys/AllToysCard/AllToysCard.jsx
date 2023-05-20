@@ -1,9 +1,10 @@
-import { FaRegEdit,FaSignInAlt,FaTrashAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
+
 
 const AllToysCard = ({toy,index}) => {
     console.log(toy)
-    const {sellerName, toyName,photoURL,price,_id} =toy ||{}
+    const {sellerName, toyName,photoURL,price,subToy,quantity} =toy ||{}
+    console.log(subToy)
     return (
         <tr >
           <td>{index +1}</td>
@@ -25,10 +26,10 @@ const AllToysCard = ({toy,index}) => {
             </div>
         </td>
         <td>{price}</td>
+        <td defaultValue={subToy.map(sub=>sub)}></td>
+        <td>{quantity}</td>
+        {/* {subToy.map((sub,index)=><td key={index}>{sub}</td>)} */}
         <th>
-          
-          <Link to={`updateToy/${_id}`} className="btn  btn-info btn-md btn-outline"><FaRegEdit className="w-8 h-8"/></Link>
-          <button className="btn mx-4  btn-warning btn-md btn-outline"><FaTrashAlt className="w-8 h-8"/></button>
           <button className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8"/></button>
         </th>
       </tr>

@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 
 
 const Blog = () => {
     return (
         <div className="card  bg-cyan-400 py-20 px-20">
+            <Helmet>
+                <title>Sand Pal !!  Blog</title>
+            </Helmet>
             <div className="collapse  ">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title bg-cyan-400 text-cyan-content peer-checked:bg-white peer-checked:text-white-content">

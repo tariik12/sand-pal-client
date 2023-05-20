@@ -1,6 +1,6 @@
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import { Helmet, } from 'react-helmet-async';
 import { toast } from 'react-toastify';
 import G_Login from '../Shared/G_Login/G_Login';
 import login from '../../../public/login.json'
@@ -66,6 +66,9 @@ const Login = () => {
 
 
         <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                <title>Sand Pal !!  Login</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <div className="text-center lg:text-left ">
@@ -89,19 +92,19 @@ const Login = () => {
 
                                 <input type="password" name="password" placeholder="Please enter your password" className="input input-bordered" required />
                                 <label className="label">
-                                    
-                                {<span className='font-bold '>Accept <Link to="/terms" className=' text-cyan-700 hover:text-cyan-400 font-bold'>terms and conditions</Link></span>}
+
+                                    {<span className='font-bold '>Accept <Link to="/terms" className=' text-cyan-700 hover:text-cyan-400 font-bold'>terms and conditions</Link></span>}
                                     <div className="form-control">
                                         <label className="cursor-pointer label">
-                                        
+
                                             <input
-                                            className="checkbox checkbox-primary"
-                                        type="checkbox"
-                                        onClick={handleAccept}
-                                    />
+                                                className="checkbox checkbox-primary"
+                                                type="checkbox"
+                                                onClick={handleAccept}
+                                            />
                                         </label>
                                     </div>
-                                    
+
                                 </label>
                                 <span className='font-bold mt-5 '>  Create account ? <Link to='/register' className=' text-cyan-700 hover:text-cyan-400 font-bold'>Register</Link></span>
                             </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AllToysCard from "./AllToysCard/AllToysCard";
+import { Helmet } from "react-helmet-async";
 
 
 const AllToys = () => {
@@ -19,6 +20,9 @@ const AllToys = () => {
     }
     return (
         <div className="p-10 overflow-x-auto w-full">
+            <Helmet>
+                <title>Sand Pal !!  AllToys</title>
+            </Helmet>
             <div className="card flex gap-4 bg-base-100 shadow-2xl">
                 <div>
                     <h1 className="text-4xl font-extrabold mx-auto">All Toys </h1>
@@ -39,9 +43,9 @@ const AllToys = () => {
                         <th>Toy Name</th>
                         <th>Toy Picture</th>
                         <th>Price</th>
-                        <th> sab Category</th>
-                        <th>Photo</th>
-                        <th> Raging</th>
+                        <th>sab Category</th>
+                        <th>Available Quantity</th>
+                        <th>Details</th>
                     </tr>
                 </thead>
                 <tbody >

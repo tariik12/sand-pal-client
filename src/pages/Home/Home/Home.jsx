@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet-async";
 import HowToSand from "../../ExtraPart/HowToSand/HowToSand";
 import SandPal from "../../ExtraPart/SandPal/SandPal";
 
@@ -10,6 +11,9 @@ import ReactTabs from "../ReactTabs/TabReact/ReactTabs";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Sand Pal !!</title>
+            </Helmet>
             <Banner></Banner>
             <SandPal></SandPal>
             {/* <Gallery></Gallery> */}
