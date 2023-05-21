@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaRegEdit, FaSignInAlt, FaTrashAlt } from "react-icons/fa";
 
 import Swal from "sweetalert2";
+import 'sweetalert2/dist/sweetalert2.css'
 import { Helmet } from "react-helmet-async";
 
 const MyToys = () => {
@@ -20,7 +21,7 @@ const MyToys = () => {
     }, [user])
 
     const handleDelete = (_id) => {
-        console.log(_id)
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -29,27 +30,30 @@ const MyToys = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
+          }).then((result) => {
             if (result.isConfirmed) {
-
+                
                 fetch(`https://spk-server-side.vercel.app/myToy/${_id}`,{
                     method:'DELETE'
                 })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your Toy  has been deleted.',
-                                'success'
-                            )
-
-                        }
-                    })
-
+                .then(res => res.json())
+                .then(data => {
+                    if(data.deletedCount){
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+              const rem = myToys.filter( toy =>toy._id !== _id)
+        console.log(rem)
+        setMyToys(rem)
+                    }
+                })
+           
             }
-        })
+          })
+        console.log(_id)
+      
     }
 
     const handleAss =() =>{
@@ -119,7 +123,7 @@ const MyToys = () => {
                                 <th>
                                    <Link to={`/updateToy/${toy._id}`} className="btn  btn-info btn-md btn-outline"><FaRegEdit className="w-8 h-8" /></Link>
                                     <button onClick={() => handleDelete(toy._id)} className="btn mx-4  btn-warning btn-md btn-outline"><FaTrashAlt className="w-8 h-8" /></button>
-                                    <button className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8" /></button>
+                                    <Link to={`/toyDetails/${toy._id}`} className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
                                 </th>
                             </tr>
                         ))

@@ -42,7 +42,7 @@ const Navbar = () => {
           
           <div className="avatar">
             <div className="w-16 rounded-full">
-              <img src={user?.photoURL} />
+              <img title={user?.displayName} src={user?.photoURL} />
             </div>
             </div>
             <li className="font-bold text-xl"><button onClick={handleLogout} className="btn btn-primary btn-outline md:mt-2  md:ms-5 ">Logout</button></li>

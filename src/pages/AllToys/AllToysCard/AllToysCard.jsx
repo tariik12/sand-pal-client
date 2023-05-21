@@ -1,9 +1,10 @@
 import { FaSignInAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const AllToysCard = ({toy,index}) => {
     console.log(toy)
-    const {sellerName, toyName,photoURL,price,subToy,quantity} =toy ||{}
+    const {sellerName, toyName,photoURL,price,subToy,quantity,_id,} =toy ||{}
     console.log(subToy)
     return (
         <tr >
@@ -28,9 +29,9 @@ const AllToysCard = ({toy,index}) => {
         <td>{price}</td>
         <td defaultValue={subToy.map(sub=>sub)}></td>
         <td>{quantity}</td>
-        {/* {subToy.map((sub,index)=><td key={index}>{sub}</td>)} */}
+        {subToy.map((sub,index)=><td key={index}>{sub.value}</td>)}
         <th>
-          <button className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8"/></button>
+        <Link to={`/toyDetails/${_id}`} className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>
         </th>
       </tr>
     );

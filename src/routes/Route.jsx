@@ -10,6 +10,8 @@ import AllToys from "../pages/AllToys/AllToys";
 import MyToys from "../pages/MyToys/MyToys";
 import UpdateToy from "../pages/UpdateToy/UpdateToy";
 import Sub_CategoryDetails from "../pages/Home/ReactTabs/TabReact/Sub_CategoryDetails/Sub_CategoryDetails";
+import PrivateRoute from "./PrivateRoute";
+import ToyDetails from "../pages/ToyDetails/ToyDetails";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
         },
         {
           path:'viewDetails/:id',
-          element:<Sub_CategoryDetails></Sub_CategoryDetails>,
+          element:<PrivateRoute><Sub_CategoryDetails></Sub_CategoryDetails></PrivateRoute>,
           loader:({params}) => fetch(`https://spk-server-side.vercel.app/sandPalToy/${params.id}`)
         }
         ,
@@ -49,11 +51,16 @@ const router = createBrowserRouter([
         },
         {
           path:'/myToys',
-          element:<MyToys></MyToys>
+          element:<PrivateRoute><MyToys></MyToys></PrivateRoute>
         },
         {
           path:'updateToy/:id',
           element:<UpdateToy></UpdateToy>,
+          loader:({params}) => fetch(`https://spk-server-side.vercel.app/allToys/${params.id}`)
+        },
+        {
+          path:'toyDetails/:id',
+          element:<PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
           loader:({params}) => fetch(`https://spk-server-side.vercel.app/allToys/${params.id}`)
         }
 

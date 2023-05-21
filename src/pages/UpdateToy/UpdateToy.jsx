@@ -26,7 +26,7 @@ const UpdateToy = () => {
 
   const data = useLoaderData()
   console.log(data)
-  const {Rating,description,photoURL,subToy, price,sellerEmail,sellerName,toyName,quantity,_id} = data;
+  const {rating,description,photoURL,subToy, price,sellerEmail,sellerName,toyName,quantity,_id} = data;
 
   const onSubmit = (data) => {
   
@@ -141,7 +141,7 @@ const UpdateToy = () => {
                                 <label className="label">
                                     <span className="label-text font-extrabold text-lg">Rating</span>
                                 </label>
-                                <input defaultValue={Rating} {...register("Rating")} className="input input-bordered" placeholder="Enter Rating" required />
+                                <input defaultValue={rating} {...register("rating")} className="input input-bordered" placeholder="Enter Rating" required />
                             </div>
                         </div>
                         <div className="form-control ">

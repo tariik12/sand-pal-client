@@ -5,6 +5,7 @@ import SandPal from "../../ExtraPart/SandPal/SandPal";
 
 import Banner from "../../Shared/Header/Banner/Banner";
 import ReactTabs from "../ReactTabs/TabReact/ReactTabs";
+import Gallery from "../../Gallery/Gallery";
 
 
 
@@ -16,7 +17,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <SandPal></SandPal>
-            {/* <Gallery></Gallery> */}
+            <Gallery></Gallery>
             <ReactTabs></ReactTabs>
             <HowToSand></HowToSand>
         </div>

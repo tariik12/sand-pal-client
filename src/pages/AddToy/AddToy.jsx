@@ -136,7 +136,7 @@ console.log(watch('price'))
                                 <label className="label">
                                     <span className="label-text font-extrabold text-lg">Rating</span>
                                 </label>
-                                <input {...register("Rating")} className="input input-bordered" placeholder="Enter Rating" required />
+                                <input {...register("rating")} className="input input-bordered" placeholder="Enter Rating" required />
                             </div>
                         </div>
                         <div className="form-control ">
