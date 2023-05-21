@@ -39,10 +39,10 @@ const Gallery = () => {
    return <progress className="progress w-56"></progress>
   }
   return (
-    <div className='mb-20 px-20 overflow-hidden'>
+    <div className=' mb-20 px-20 overflow-hidden md:overflow-visible'>
       <h1 className='text-center text-6xl font-extrabold text-cyan-400 shadow-2xl p-5 rounded-md' >Sand Pal Gallery</h1>
 
-      <div className='md:flex overflow-hidden ' >
+      <div className='md:flex  md:overflow-visible ' >
         {/* 1row */}
         <div className='md:w-1/2 '>
           <div className=' md:h-[600px] p-10 '  data-aos="zoom-in">
@@ -84,7 +84,7 @@ const Gallery = () => {
             </div>
           </div>
           {/* 4row */}
-          <div className='  md:h-[600px] p-10 overflow-hidden '  data-aos="zoom-in">
+          <div className='  md:h-[600px] p-10 overflow-hidden md:overflow-visible '  data-aos="zoom-in">
             <div data-aos="fade-down" className='h-[200px] grid grid-cols-1 md:grid-cols-2  gap-2'>
               {
                 SandBuckets?.map((sandMold, index) => (
