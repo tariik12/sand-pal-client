@@ -19,7 +19,7 @@ export default function Banner() {
         Aos.init({duration:3000})
     },[])
     return (
-        <>
+        <div data-aos="zoom-in">
             <Swiper
                 grabCursor={true}
                 effect={"creative"}
@@ -115,6 +115,6 @@ export default function Banner() {
                     </div>
                 </SwiperSlide>
             </Swiper>
-        </>
+        </div>
     );
 }

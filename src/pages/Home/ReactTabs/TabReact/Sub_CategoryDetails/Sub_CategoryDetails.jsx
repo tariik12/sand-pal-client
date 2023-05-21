@@ -1,8 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { Rating } from '@smastrom/react-rating'
-
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import '@smastrom/react-rating/style.css'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../../../provider/AuthProvider";
 import { FaGratipay, FaArrowLeft } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
@@ -12,8 +13,11 @@ const Sub_CategoryDetails = () => {
     const {user} = useContext(AuthContext)
     console.log(data)
     const {like,material,name,picture,price,rating,sand,details} = data
+      useEffect(()=>{
+          Aos.init({duration:3000})
+      },[])
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl p-10 m-10 border">
+        <div className="card lg:card-side bg-base-100 shadow-xl p-10 m-10 border" data-aos="zoom-in-up">
           <Helmet>
           <title>Sand Pal !! SubToyDetails</title>
           </Helmet>

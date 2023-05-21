@@ -26,38 +26,33 @@ const Gallery = () => {
   const SandSculptingKits = allData.filter(data => data.sand === 'Sand Sculpting Kit')
 
   useEffect(() => {
-    Aos.init({ duration: 3000 })
+    Aos.init({ duration: 2000 })
   }, [])
   return (
-    <div>
+    <div className='mb-20 px-20'>
+      <h1 className='text-center text-6xl font-extrabold text-cyan-400 shadow-2xl p-5 rounded-md' >Sand Pal Gallery</h1>
 
-      <div className='flex'>
+      <div className='flex ' >
         {/* 1row */}
         <div className='w-1/2'>
-          <div className='bg-red-800 h-96 '>
-            <div data-aos="fade-left" className=' h-[200px] grid grid-cols-2'>
+          <div className=' h-[600px] p-10'  data-aos="zoom-in">
+            <div data-aos="fade-left" className=' h-[200px] grid grid-cols-2 gap-2'>
               {
                 sandMolds?.map((sandMold, index) => (
-                  <div key={index} className="card w-[50px] h-[20px]  m-10  bg-base-100 shadow-xl ">
-
-                    <img src={sandMold.picture} className="w-full  rounded-lg  mx-auto " />
-
-
+                  <div key={index} className="card w-full h-[250px]   bg-base-100 shadow-xl ">
+                    <img src={sandMold.picture} className="w-full h-full  rounded-lg   " />
                   </div>
                 ))
               }
             </div>
           </div>
           {/* 3row */}
-          <div className='bg-slate-700 h-48'>
-            <div data-aos="fade-down" className='h-[200px] grid grid-cols-3'>
+          <div className=' h-[300px] mt-52 p-10'  data-aos="flip-right">
+            <div data-aos="fade-down" className='h-[200px] grid grid-cols-3 gap-2'>
               {
                 SandTools?.map((sandMold, index) => (
-                  <div key={index} className="card  w-[50px] h-[20px]  m-10  bg-base-100 shadow-xl">
-
-                    <img src={sandMold.picture} className="w-full  rounded-lg  mx-auto " />
-
-
+                  <div key={index} className="card   h-[140px] bg-base-100 shadow-xl">
+                    <img src={sandMold.picture} className="w-full  h-full rounded-lg   " />
                   </div>
                 ))
               }
@@ -66,30 +61,25 @@ const Gallery = () => {
         </div>
         <div className='w-1/2'>
           {/* 2row */}
-          <div className='bg-purple-500 h-48'>
-            <div data-aos="fade-right" className='h-[200px] grid grid-cols-3 '>
-              
+          <div className=' h-[300px] p-10' data-aos="flip-right">
+            <div data-aos="fade-right" className='h-[200px] grid grid-cols-3  gap-2'>
                 {
                   SandShapers?.map((sandMold, index) => (
-                    <div key={index} className="card w-[50px] h-[20px] m-10 bg-base-100 shadow-xl">
+                    <div key={index} className="card  h-[140px] bg-base-100 shadow-xl">
 
-                      <img src={sandMold.picture} className="  rounded-lg  mx-auto " />
+                      <img src={sandMold.picture} className="  rounded-lg w-full h-full " />
                     </div>
                   ))
                 }
-            
             </div>
           </div>
           {/* 4row */}
-          <div className='bg-rose-200 h-96'>
-            <div data-aos="fade-down" className='h-[200px] grid grid-cols-2 '>
+          <div className=' h-[600px] p-10'  data-aos="zoom-in">
+            <div data-aos="fade-down" className='h-[200px] grid grid-cols-2  gap-2'>
               {
                 SandBuckets?.map((sandMold, index) => (
-                  <div key={index} className="card w-[50px] h-[20px]  m-10 bg-base-100 shadow-xl">
-
-                    <img src={sandMold.picture} className=" rounded-lg  mx-auto " />
-
-
+                  <div key={index} className="card w-full h-[250px]   bg-base-100 shadow-xll">
+                    <img src={sandMold.picture} className=" w-full h-full  rounded-lg " />
                   </div>
                 ))
               }
@@ -98,32 +88,21 @@ const Gallery = () => {
         </div>
       </div>
       {/* 5row */}
-      <div>
-        <div className='bg-green-400'>
-          <div data-aos="fade-down" className='h-[200px] grid grid-cols-6 '>
+      
+        <div className='  p-10' data-aos="zoom-out-right">
+          <div  className='h-[200px] grid grid-cols-6 '>
             {
               SandSculptingKits?.map((sandMold, index) => (
-                <div key={index} className="card  w-[400px]  bg-base-100 shadow-xl">
-
-                  <img src={sandMold.picture} className="w-full h-[200px]  rounded-lg  mx-auto " />
-
-
+                <div key={index} className="card  p-2  bg-base-100 shadow-xl" >
+                  <img src={sandMold.picture} className="w-full h-full  rounded-lg  mx-auto " />
                 </div>
               ))
             }
-          </div></div>
+          </div>
+          </div>
       </div>
-    </div>
+    
   );
 };
 
 export default Gallery;
-
-
-{/* <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-5 mx-auto'>
-
-
-
-
-
-</div> */}

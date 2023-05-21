@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaRegEdit, FaSignInAlt, FaTrashAlt } from "react-icons/fa";
-
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.css'
 import { Helmet } from "react-helmet-async";
@@ -10,7 +11,10 @@ import { Helmet } from "react-helmet-async";
 const MyToys = () => {
     const { user, } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([])
-
+   
+    useEffect(() => {
+        Aos.init({ duration: 1500 })
+      }, [])
 
     console.log(myToys)
     useEffect(() => {
@@ -75,52 +79,57 @@ const MyToys = () => {
         
     }
     return (
-        <div className="p-10 overflow-x-auto w-full">
+        <div className=" overflow-x-auto  w-full">
             <Helmet>
                 <title>Sand Pal !!  MyToy</title>
             </Helmet>
             <div>
-                <button onClick={handleAss}  className="btn">acnding</button>
-                <button onClick={handleDes} className="btn">decnding</button>
+                    <h1 className="text-4xl py-10 bg-base-100 shadow-xl text-center font-extrabold mx-auto">My Toys </h1>
+                </div>
+            <div className="bg-base-100 shadow-xl p-5 ">
+                <button onClick={handleAss}  className="btn m-5 btn-primary btn-outline">acnding</button>
+                <button onClick={handleDes} className="btn  btn-primary btn-outline">decnding</button>
             </div>
             <table className="table w-full">
                 {/* head */}
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Seller Name</th>
-                        <th>Toy Name</th>
-                        <th>Toy Picture</th>
-                        <th>Price</th>
-                        <th> sab Category</th>
-                        <th>Photo</th>
-                        <th> Raging</th>
+                    <th className="text-lg" data-aos="zoom-in">NO</th>
+                        <th className="text-lg" data-aos="zoom-in">SELLER NAME</th>
+                        <th className="text-lg" data-aos="zoom-in">SELLER EMAIL</th>
+                        <th className="text-lg" data-aos="zoom-in">TOY NAME</th>
+                        <th className="text-lg" data-aos="zoom-in">TOY PICTURE</th>
+                        <th className="text-lg" data-aos="zoom-in">PRICE</th>
+                        <th className="text-lg" data-aos="zoom-in">RATING</th>
+                        <th className="text-lg" data-aos="zoom-in">SUB CATEGORY</th>
+                        <th className="text-lg" data-aos="zoom-in">AVAILABLE QUANTITY</th>
+                        <th className="text-lg" data-aos="zoom-in">DETAILS</th>
                     </tr>
                 </thead>
                 <tbody >
                     {
                         myToys?.map((toy, index) => (
                             <tr key={index}>
-                                <td>{index + 1}</td>
-                                <th>
+                                <td data-aos="zoom-in">{index + 1}</td>
+                                <th data-aos="zoom-in">
                                     {toy.sellerName}
                                 </th>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div>
-                                            <div className="font-bold">{toy.toyName}</div>
-                                        </div>
-                                    </div>
+                                <td data-aos="zoom-in">{toy.sellerEmail}</td>
+                                <td data-aos="zoom-in">
+                                    <div className="font-bold">{toy.toyName}</div>
                                 </td>
-                                <td>
+                                <td data-aos="zoom-in">
                                     <div className="avatar">
                                         <div className="w-24 rounded ">
                                             <img src={toy.photoURL} />
                                         </div>
                                     </div>
                                 </td>
-                                <td>{toy.price}</td>
-                                <th>
+                                <td data-aos="zoom-in">{toy.price}</td>
+                                <td data-aos="zoom-in">{toy.rating}</td>
+                                <td data-aos="zoom-in">{toy.subToy.map((sub,index)=><li key={index}>{sub.value}</li>)}</td>
+                                <td data-aos="zoom-in">{toy.quantity}</td>
+                                <th data-aos="zoom-in">
                                    <Link to={`/updateToy/${toy._id}`} className="btn  btn-info btn-md btn-outline"><FaRegEdit className="w-8 h-8" /></Link>
                                     <button onClick={() => handleDelete(toy._id)} className="btn mx-4  btn-warning btn-md btn-outline"><FaTrashAlt className="w-8 h-8" /></button>
                                     <Link to={`/toyDetails/${toy._id}`} className="btn  btn-primary btn-md btn-outline"><FaSignInAlt className="w-8 h-8" /></Link>

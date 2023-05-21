@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Rating } from '@smastrom/react-rating'
-
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
 import { FaSignInAlt } from 'react-icons/fa';
@@ -25,10 +26,14 @@ const ReactTabs = () => {
       .then(data => setAllData(data))
   }, [])
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
-    <Tabs className='m-20 '>
-      <TabList className='mx-auto  text-center'>
-        <h1 className='border'>SandPal Toy</h1>
+    <Tabs className='my-10'>
+      <TabList className='mx-auto shadow-md text-center'>
+        <h1 className='text-6xl font-extrabold text-cyan-400 py-5 shadow-xl rounded-md '>SandPal Toy</h1>
         <Tab>Sand Molds</Tab>
         <Tab>Sand Shapers</Tab>
         <Tab>Sand Tools</Tab>
@@ -38,7 +43,7 @@ const ReactTabs = () => {
 
       <TabPanel >
 
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5' data-aos="zoom-in">
           {
             sandMolds.map((sandMold, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">
@@ -62,7 +67,7 @@ const ReactTabs = () => {
         </div>
       </TabPanel>
       <TabPanel>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5' data-aos="zoom-in">
           {
             SandShapers.map((sandShaper, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">
@@ -86,7 +91,7 @@ const ReactTabs = () => {
         </div>
       </TabPanel>
       <TabPanel>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5' data-aos="zoom-in">
           {
             SandBuckets.map((SandBucket, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">
@@ -110,7 +115,7 @@ const ReactTabs = () => {
         </div>
       </TabPanel>
       <TabPanel>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5' data-aos="zoom-in">
           {
             SandTools.map((SandTool, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">
@@ -134,7 +139,7 @@ const ReactTabs = () => {
         </div>
       </TabPanel>
       <TabPanel>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5' data-aos="zoom-in">
           {
             SandSculptingKits.map((SandSculptingKit, index) => (
               <div key={index} className="card  w-[400]  bg-base-100 shadow-xl">

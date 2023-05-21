@@ -11,12 +11,14 @@ import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <HelmetProvider>
+  <div className='px-5'>
+    <HelmetProvider>
         <AuthProvider>
     <RouterProvider router={router} />
     <ToastContainer/>
   </AuthProvider>
   </HelmetProvider>
+  </div>
    
 
 
