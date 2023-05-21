@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../../assets/logo.png"
 import { FaBahai } from "react-icons/fa";
 import { useContext } from "react";
@@ -29,16 +29,24 @@ const Navbar = () => {
     });
   }
 
+   
+  const navLinkStyles = ({isActive}) =>{
+    return{
+        fontWeight: isActive?'bold':'normal',
+        textDecoration: isActive? 'none': 'underline'
+    }
+    
+}
+
   const navLinkItem =
     <>
-      <li className="font-bold text-xl"><Link to='/'>Home</Link></li>
-      <li className="font-bold text-xl"><Link to="/blog">Blogs</Link></li>
-      <li className="font-bold text-xl"><Link to='/allToys'>All Toys</Link></li>
-
+      <li  className="font-bold text-xl"><NavLink style={navLinkStyles} to='/'>Home</NavLink></li>
+      <li className="font-bold text-xl"><NavLink style={navLinkStyles} to="/blog">Blogs</NavLink></li>
+      <li className="font-bold text-xl"><NavLink style={navLinkStyles}  to='/allToys'>All Toys</NavLink></li>
       {
         user ? <>
-          <li className="font-bold text-xl"><Link to='/myToys' >My Toys</Link></li>
-          <li className="font-bold text-xl"><Link to='/addToy'>Add Toy</Link></li>
+          <li className="font-bold text-xl"><NavLink  to='/myToys' >My Toys</NavLink></li>
+          <li className="font-bold text-xl"><NavLink  to='/addToy'>Add Toy</NavLink></li>
           
           <div className="avatar">
             <div className="w-16 rounded-full">
@@ -50,8 +58,8 @@ const Navbar = () => {
           </>
           :
           <>
-            <li className="font-bold text-xl"><Link to='/login'>Login</Link></li>
-            <li className="font-bold text-xl"><Link to='/register'>Register</Link></li>
+            <li className="font-bold text-xl"><NavLink to='/login'>Login</NavLink></li>
+            <li className="font-bold text-xl"><NavLink to='/register'>Register</NavLink></li>
           </>
       }
         </>

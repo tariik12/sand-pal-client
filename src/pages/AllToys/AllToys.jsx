@@ -12,30 +12,34 @@ const AllToys = () => {
     const [searchText, setSearchText] = useState('')
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-
+        setLoading(true)
         fetch('https://spk-server-side.vercel.app/allToys')
             .then(res => res.json())
-            .then(data => setAllToys(data))
+            .then(data => {
+                setLoading(false)
+                setAllToys(data)
+            })
     }, [])
 
     const handleSearch =() =>{
+        setLoading(true)
         fetch(`https://spk-server-side.vercel.app/allToySearch/${searchText}`)
         .then(res =>res.json())
-        .then(data =>setAllToys(data))
+        .then(data =>{
+            setLoading(false)
+            setAllToys(data)
+        })
     }
 
 
-    if(!allToys){
-            setLoading(true)
-    }
 
-    if(loading){
-     <progress className="progress w-56"></progress>
-    }
-
+    
     useEffect(() => {
         Aos.init({ duration: 1000 })
-      }, [])
+    }, [])
+    if(loading){
+    return <progress className="progress w-56"></progress>
+    }
     return (
         <div className=" overflow-x-auto w-full" >
             <Helmet>

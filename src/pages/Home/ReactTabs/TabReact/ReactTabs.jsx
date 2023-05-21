@@ -12,6 +12,7 @@ import { FaSignInAlt } from 'react-icons/fa';
 const ReactTabs = () => {
 
   const [allData, setAllData] = useState([])
+  const [loading,setLoading] = useState(true)
 
   const sandMolds = allData.filter(data => data.sand === 'Sand Molds')
   const SandShapers = allData.filter(data => data.sand === 'Sand Shaper')
@@ -21,19 +22,27 @@ const ReactTabs = () => {
 
 
   useEffect(() => {
+    setLoading(true)
     fetch('https://spk-server-side.vercel.app/sandPalToy')
       .then(res => res.json())
-      .then(data => setAllData(data))
+      .then(data => {
+        setLoading(false)
+        setAllData(data)
+      })
   }, [])
 
   useEffect(() => {
     Aos.init({ duration: 2000 })
   }, [])
 
+  if(loading){
+  return  <progress className="progress w-56"></progress>
+  }
   return (
-    <Tabs className='my-10'>
+   <div className='mt-10'>
+     <Tabs className='my-10'>
       <TabList className='mx-auto shadow-md text-center'>
-        <h1 className='text-6xl font-extrabold text-cyan-400 py-5 shadow-xl rounded-md '>SandPal Toy</h1>
+        <h1 className='text-6xl font-extrabold bg-base-100 text-cyan-400 py-5 shadow-2xl rounded-md '>SandPal Toy</h1>
         <Tab>Sand Molds</Tab>
         <Tab>Sand Shapers</Tab>
         <Tab>Sand Tools</Tab>
@@ -169,6 +178,7 @@ const ReactTabs = () => {
 
 
     </Tabs>
+   </div>
   );
 };
 

@@ -1,34 +1,30 @@
-import { Link, useLoaderData } from "react-router-dom";
+import {  Link, useLoaderData } from "react-router-dom";
 import { Rating } from '@smastrom/react-rating'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import '@smastrom/react-rating/style.css'
-import { useContext, useEffect } from "react";
-import { AuthContext } from "../../../../../provider/AuthProvider";
 import { FaGratipay, FaArrowLeft } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const Sub_CategoryDetails = () => {
     const data = useLoaderData();
-    const {user} = useContext(AuthContext)
+  
     console.log(data)
     const {like,material,name,picture,price,rating,sand,details} = data
-      useEffect(()=>{
-          Aos.init({duration:3000})
-      },[])
+    useEffect(()=>{
+      Aos.init({duration:3000})
+    },[])
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl p-10 m-10 border" data-aos="zoom-in-up">
+        <div className="card lg:card-side bg-base-100 shadow-xl p-10  border" data-aos="zoom-in-up">
           <Helmet>
           <title>Sand Pal !! SubToyDetails</title>
           </Helmet>
   <img src={picture} className="w-[700px] h-[800px] border" alt="Album"/>
   <div className="card-body">
     <div className="flex ">
-    <h1 className="card-title text-3xl md:text-6xl font-extrabold text-center ms-10 md:ms-80" >{sand}</h1>
+    <h1 className=" text-3xl md:text-6xl font-extrabold text-center ms-10 " >{sand}</h1>
     <div className="avatar online ms-40">
-  <div className="md:w-24 w-16 rounded-full">
-    <img src={user?.photoURL} />
-  </div>
   </div>
     </div>
     <h2 className=" text-2xl md:text-4xl font-extrabold p-10">{name}</h2>
@@ -62,7 +58,7 @@ const Sub_CategoryDetails = () => {
   </div>
   
   <div className="stat  mt-5">
-    <Link to='/' className="btn  md:w-1/2 btn-info btn-md btn-outline"><FaArrowLeft className=" md:w-8 md:h-8"/></Link>
+   <Link to='/' className="btn"><FaArrowLeft className="md:w-8 md:h-8"/></Link>
   </div>
   
 </div>

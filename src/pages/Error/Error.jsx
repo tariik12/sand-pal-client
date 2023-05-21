@@ -13,7 +13,7 @@ const Error = () => {
       </Helmet>
       <div className='w-1/2  mx-auto  '><Lottie animationData={error_1} loop={true} /></div>
       <div className="card-body mt-20">
-        <h2 className=" text-center text-4xl font-extrabold text-red-700"><strong>Error :</strong> {error.message}</h2>
+        <h2 className=" text-center text-4xl font-extrabold text-red-700"><strong>Error :</strong> {error?.message}</h2>
         <p className='text-center text-2xl font-bold text-warning'>{status || 'Not Found Page' + '404'}</p>
         <Link to='/' className="btn bg-cyan-400 text-white justify-center">Go To Home</Link>
 

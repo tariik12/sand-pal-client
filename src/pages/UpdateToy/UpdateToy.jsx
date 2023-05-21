@@ -94,7 +94,7 @@ const UpdateToy = () => {
                                 <label className="label">
                                     <span className="label-text font-extrabold text-lg">Toy Name</span>
                                 </label>
-                                <select defaultValue={toyName} {...register("toyName")} className="input input-bordered" >
+                                <select defaultValue={toyName} {...register("toyName")} className="input input-bordered"  required>
                                     <option value="Sand Molds">Sand Molds</option>
                                     <option value="Sand Shapers">Sand Shapers</option>
                                     <option value="Sand Tools">Sand Tools</option>
@@ -120,12 +120,9 @@ const UpdateToy = () => {
                                onChange={setSelectedSub_Category}
                                options={Sub_Category}
                                isMulti
+                               required
                            />
-                                {/* {
-                                subToy.map((sub,index)  =><div key={index} >{
-                                   
-                                    }</div>)
-                               } */}
+                                
                                 
                             </div>
                         </div>

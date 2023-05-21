@@ -11,17 +11,21 @@ import { Helmet } from "react-helmet-async";
 const MyToys = () => {
     const { user, } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([])
-   
+    const [loading,setLoading] = useState(true)
+   console.log(myToys)
     useEffect(() => {
         Aos.init({ duration: 1500 })
       }, [])
 
     console.log(myToys)
     useEffect(() => {
-
+        setLoading(true)
         fetch(`https://spk-server-side.vercel.app/myToy/${user?.email}`)
             .then(res => res.json())
-            .then(data => setMyToys(data))
+            .then(data => {
+                setLoading(false)
+                setMyToys(data)
+            })
     }, [user])
 
     const handleDelete = (_id) => {
@@ -61,23 +65,27 @@ const MyToys = () => {
     }
 
     const handleAss =() =>{
-
-        
-
+        setLoading(true)
             fetch(`https://spk-server-side.vercel.app/ass/${user?.email}`)
                 .then(res => res.json())
-                .then(data => setMyToys(data))
-        
+                .then(data => {
+                    setLoading(false)
+                    setMyToys(data)
+                })    
     }
     const handleDes =() =>{
-
-        
-
+        setLoading(true)
             fetch(`https://spk-server-side.vercel.app/des/${user?.email}`)
                 .then(res => res.json())
-                .then(data => setMyToys(data))
-        
+                .then(data => {
+                    setLoading(false)
+                    setMyToys(data)
+                })  
     }
+
+    if(loading){
+        return <progress className="progress w-56"></progress>
+       }
     return (
         <div className=" overflow-x-auto  w-full">
             <Helmet>
@@ -94,16 +102,16 @@ const MyToys = () => {
                 {/* head */}
                 <thead>
                     <tr>
-                    <th className="text-lg" data-aos="zoom-in">NO</th>
-                        <th className="text-lg" data-aos="zoom-in">SELLER NAME</th>
-                        <th className="text-lg" data-aos="zoom-in">SELLER EMAIL</th>
-                        <th className="text-lg" data-aos="zoom-in">TOY NAME</th>
-                        <th className="text-lg" data-aos="zoom-in">TOY PICTURE</th>
-                        <th className="text-lg" data-aos="zoom-in">PRICE</th>
-                        <th className="text-lg" data-aos="zoom-in">RATING</th>
-                        <th className="text-lg" data-aos="zoom-in">SUB CATEGORY</th>
-                        <th className="text-lg" data-aos="zoom-in">AVAILABLE QUANTITY</th>
-                        <th className="text-lg" data-aos="zoom-in">DETAILS</th>
+                    <th className="font-bold" data-aos="zoom-in">NO</th>
+                        <th className="font-bold" data-aos="zoom-in">SELLER NAME</th>
+                        <th className="font-bold" data-aos="zoom-in">SELLER EMAIL</th>
+                        <th className="font-bold" data-aos="zoom-in">TOY NAME</th>
+                        <th className="font-bold" data-aos="zoom-in">TOY PICTURE</th>
+                        <th className="font-bold" data-aos="zoom-in">PRICE</th>
+                        <th className="font-bold" data-aos="zoom-in">RATING</th>
+                        <th className="font-bold" data-aos="zoom-in">SUB CATEGORY</th>
+                        <th className="font-bold" data-aos="zoom-in">AVAILABLE QUANTITY</th>
+                        <th className="font-bold" data-aos="zoom-in">DETAILS</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -126,7 +134,7 @@ const MyToys = () => {
                                     </div>
                                 </td>
                                 <td data-aos="zoom-in">{toy.price}</td>
-                                <td data-aos="zoom-in">{toy.rating}</td>
+                                <td data-aos="zoom-in">{toy?.rating}</td>
                                 <td data-aos="zoom-in">{toy.subToy.map((sub,index)=><li key={index}>{sub.value}</li>)}</td>
                                 <td data-aos="zoom-in">{toy.quantity}</td>
                                 <th data-aos="zoom-in">

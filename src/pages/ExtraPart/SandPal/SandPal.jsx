@@ -8,10 +8,10 @@ const SandPal = () => {
         Aos.init({duration:1000})
     },[])
     return (
-        <div className="hero min-h-screen ">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="md:hero md:min-h-screen ">
+            <div className="md:hero-content flex-col md:flex-row-reverse">
                 <div className='' data-aos="fade-left">
-                    <img src={sand} className="max-w-2xl md:me-end rounded-lg  " />
+                    <img src={sand} className="md:max-w-md p-5 md:me-end md:rounded-lg  " />
                 </div>
                 <div className=' max-w-2xl' data-aos="fade-right">
                     <h1 className="text-5xl font-bold text-cyan-400">Hey! We are Sand Pal!</h1>

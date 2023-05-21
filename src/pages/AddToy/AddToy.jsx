@@ -22,13 +22,10 @@ const Sub_Category = [
 const AddToy = () => {
     const { user } = useContext(AuthContext);
     const [selectedSub_Category, setSelectedSub_Category] = useState(null);
-    // const [selectedToyName, setSelectedToyName] = useState(null);
-    const { register,watch, handleSubmit } = useForm();
-
-console.log(watch('price'))
+    const { register, watch, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        // data.toyName = selectedToyName
-        data.subToy =selectedSub_Category
+ 
+        data.subToy = selectedSub_Category
         data.sellerEmail = user.email
         data.sellerName = user.displayName
         data.price = parseInt(watch('price'))
@@ -95,7 +92,7 @@ console.log(watch('price'))
                                 <label className="label">
                                     <span className="label-text font-extrabold text-lg">Toy Name</span>
                                 </label>
-                                <select {...register("toyName")} className="input input-bordered" >
+                                <select {...register("toyName")} className="input input-bordered" required >
                                     <option value="Sand Molds">Sand Molds</option>
                                     <option value="Sand Shapers">Sand Shapers</option>
                                     <option value="Sand Tools">Sand Tools</option>
@@ -120,6 +117,7 @@ console.log(watch('price'))
                                     onChange={setSelectedSub_Category}
                                     options={Sub_Category}
                                     isMulti
+                                    required
                                 />
 
                             </div>
